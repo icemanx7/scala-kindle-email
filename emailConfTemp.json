@@ -1,0 +1,12 @@
+{
+    "email": "",
+    "password": "",
+    "showName": "",
+    "pdfPaths": "",
+    "kindleEmail": "",
+    "fileTypes": [
+        "pdf",
+        "mobi",
+        "epub"
+    ]
+}
