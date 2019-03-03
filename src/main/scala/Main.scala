@@ -2,11 +2,10 @@ import java.io.File
 import java.util.Properties
 
 import javax.mail._
-import javax.mail.internet.{InternetAddress, MimeBodyPart, MimeMessage, MimeMultipart}
+import javax.mail.internet.{InternetAddress, MimeMessage, MimeMultipart}
 import org.json4s._
 import org.json4s.native.JsonMethods._
 import javax.activation.DataHandler
-import javax.activation.DataSource
 import javax.activation.FileDataSource
 import javax.mail.internet.MimeBodyPart
 
@@ -20,11 +19,6 @@ case class EmailSettings(
                           kindleEmail: String,
                           fileTypes: List[String]
                         )
-sealed trait FileTypes
-case object PDF extends FileTypes
-case object MOBI extends FileTypes
-case object EPUB extends FileTypes
-
 object Main {
 
   val fileData = "emailConf.json"
@@ -91,13 +85,9 @@ object Main {
         newMessageBodyPart.setFileName(file.getName)
         multipart.addBodyPart(newMessageBodyPart)
       })
-      println('RICRD)
-
-      // Send the complete message parts// Send the complete message parts
 
       message.setContent(multipart)
 
-      // Send message
       Transport.send(message)
 
       System.out.println("Sent message successfully....")
@@ -110,14 +100,8 @@ object Main {
 
   }
 
-
-
-
-
-
   def main(args: Array[String]): Unit = {
-    println(initMailSend(getEmailSettings(fileData)))
-
+    initMailSend(getEmailSettings(fileData))
   }
 
 }
