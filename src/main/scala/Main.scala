@@ -36,7 +36,6 @@ object Main {
       path.substring(period + 1, path.length)
     else
       ""
-
   }
 
   def getListOfFiles(settings: EmailSettings): List[File] = {
